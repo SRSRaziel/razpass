@@ -39,13 +39,45 @@ input{
     padding: 0px 5%;
 }
 
-td{
-    vertical-align: center;
+table{
+    margin-bottom: 20px;
+}
+
+.range-slider{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#myRange{
+    width: 100%;
+}
+
+output{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.btn-range {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 10px;
+    border: 2px solid rgb(71, 71, 71);
 }
 
 .password-field{
+    margin: 20px 0px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 #password{
@@ -61,4 +93,16 @@ td{
 
 #password:hover{
     cursor: default;
+}
+
+.copy-btn{
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 30px;
+}
+
+.copy-btn:hover{
+    background-color: rgb(199, 199, 199);
 }
