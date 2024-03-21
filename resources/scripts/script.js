@@ -26,6 +26,7 @@ const increaseValue = () => {
     }
 
     changePassword();
+
   }
   
 const decreaseValue = () => {
@@ -100,6 +101,10 @@ const changePassword = () => {
   
   passField.value = password;
 
+}
+
+const copy = () => {
+  navigator.clipboard.writeText(passField.value);
 }
 
 
