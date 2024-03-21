@@ -22,26 +22,26 @@
                         <table>
                             <tr>
                                 <td>Include <b> Uppercase </b> Characters</td>
-                                <td><input type="checkbox" id="upperC"> (e.g. ABDEFGH)</td>
+                                <td><input type="checkbox" id="upperC" checked> (e.g. ABDEFGH)</td>
                             </tr>
                             <tr>
                                 <td>Include <b> Lowercase </b> Characters</td>
-                                <td><input type="checkbox" id="lowerC"> (e.g. abcdefg)</td>
+                                <td><input type="checkbox" id="lowerC" checked> (e.g. abcdefg)</td>
                             </tr>
                             <tr>
                                 <td>Include <b> Numbers</b></td>
-                                <td><input type="checkbox" id="numbers"> (e.g. 123456)</td>
+                                <td><input type="checkbox" id="numbers" checked> (e.g. 123456)</td>
                             </tr>
                             <tr>
                                 <td>Include <b> Symbols</b></td>
-                                <td><input type="checkbox" id="numbers"> (e.g. !@#$%&*)</td>
+                                <td><input type="checkbox" id="symbols" checked> (e.g. !@#$%&*)</td>
                             </tr>
                         </table>
                         <label for="range">Password Length</label>
                         <output id="output">15</output>
                         <div class="range-slider">
                             <button class="btn-range" id="decreaseBtn">-</button>
-                            <input id="myRange" type="range" value="15" min="5" max="100" oninput="output.value = this.value">
+                            <input id="myRange" type="range" value="15" min="5" max="50" oninput="output.value = this.value">
                             
                             <button class="btn-range" id="increaseBtn">+</button>
                         </div> 
