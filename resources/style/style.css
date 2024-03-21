@@ -1,0 +1,64 @@
+/* General */
+
+body, html {
+    color: white;
+    background-color: rgb(32, 32, 32);
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input{
+    margin: 5px;
+}
+
+/* Main */
+
+.container{
+    height: 500px;
+    width: 500px;
+    background-color: rgb(77, 77, 77);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.main-div h1{
+    text-align: center;
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.main-div p{
+    text-align: center;
+}
+
+.options-pass{
+    padding: 0px 5%;
+}
+
+td{
+    vertical-align: center;
+}
+
+.password-field{
+    display: flex;
+    justify-content: center;
+}
+
+#password{
+    border-radius: 5px;
+    border-style: none;
+    height: 30px;
+    width: 70%;
+}
+
+#password:focus{
+    outline: none;
+}
+
+#password:hover{
+    cursor: default;
+}

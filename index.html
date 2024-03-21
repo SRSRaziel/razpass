@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./resources/images/pass.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Crete+Round&family=Lato:wght@100;400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./resources/style/style.css">
+    <script src="./resources/scripts/script.js"></script>
+    <title>RazPass</title>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="container">
+                <div class="main-div">
+                    <h1> Password Generator </h1>
+                    <p> Create strong and secure passwords using RazPass</p>
+                    <hr>
+                    <div class="options-pass">
+                        <table>
+                            <tr>
+                                <td>Include <b> Uppercase </b> Characters</td>
+                                <td><input type="checkbox" id="upperC"> (e.g. ABDEFGH)</td>
+                            </tr>
+                            <tr>
+                                <td>Include <b> Lowercase </b> Characters</td>
+                                <td><input type="checkbox" id="lowerC"> (e.g. abcdefg)</td>
+                            </tr>
+                            <tr>
+                                <td>Include <b> Numbers</b></td>
+                                <td><input type="checkbox" id="numbers"> (e.g. 123456)</td>
+                            </tr>
+                            <tr>
+                                <td>Include <b> Symbols</b></td>
+                                <td><input type="checkbox" id="numbers"> (e.g. !@#$%&*)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="password-field">
+                        <input type="text" id="password" readonly>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main> 
+</body>
+</html>
