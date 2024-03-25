@@ -7,10 +7,9 @@ const arrSymbols = ['!','@','#','$','%','&','*','=','+','/',';','-'];
 // My components of index.html
 const range = document.getElementById('myRange');
 const passField = document.getElementById('password');
+const output = document.getElementById('output');
 
-let output = parseInt(range.value);
-
-// Since the HTML components have IDs, I don't have to define all of them here. They're already defined.
+output.value = parseInt(range.value);
 
 // Functions
 const increaseValue = () => {
@@ -19,7 +18,7 @@ const increaseValue = () => {
   
     if (currentValueRange < maxValueRange) {
       range.value = currentValueRange + 1;
-      output = currentValueRange + 1;
+      output.value = currentValueRange + 1;
     }
 
     changePassword();
@@ -32,10 +31,11 @@ const decreaseValue = () => {
 
   if (currentValueRange > minValueRange) {
     range.value = currentValueRange - 1;
-    output = currentValueRange - 1;
+    output.value = currentValueRange - 1;
   }
 
   changePassword();
+
 }
 
 const minCheck = 1;
@@ -93,7 +93,7 @@ const changePassword = () => {
     arrOfChar = arrOfChar.concat(arrSymbols);
   }
 
-  for(let i = 0; i < output; i++){
+  for(let i = 0; i < output.value; i++){
     let randomIndex = Math.floor(Math.random() * arrOfChar.length)
     password += arrOfChar[randomIndex];
   }
@@ -122,4 +122,3 @@ numbers.addEventListener('click', resetPassword);
 symbols.addEventListener('click', resetPassword);
 range.addEventListener('input', changePassword);
 document.addEventListener('DOMContentLoaded', changePassword);
-btnCopyPass.addEventListener('click', copy);
