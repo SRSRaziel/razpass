@@ -102,6 +102,37 @@ const changePassword = () => {
 
 }
 
+const checkScore = () => {
+  let score = zxcvbn(passField.value).score;
+  switch(score){
+    case 0:
+      myScore.innerHTML = 'Too guessable';
+      scoreDescription.innerHTML = 'Risky password. (guesses < 10^3)';
+      myScore.style.backgroundColor = '#8e1d1d';
+      break;
+    case 1:
+      myScore.innerHTML = 'Very guessable';
+      scoreDescription.innerHTML = 'Protection from throttled online attacks. (guesses < 10^6)';
+      myScore.style.backgroundColor = '#8e4d1d';
+      break;
+    case 2:
+      myScore.innerHTML = 'Somewhat guessable';
+      scoreDescription.innerHTML = 'Protection from unthrottled online attacks. (guesses < 10^8)';
+      myScore.style.backgroundColor = '#8e7f1d';
+      break;
+    case 3:
+      myScore.innerHTML = 'Safely unguessable';
+      scoreDescription.innerHTML = 'Moderate protection from offline slow-hash scenario. (guesses < 10^10)';
+      myScore.style.backgroundColor = '#738e1d';
+      break;
+    case 4:
+      myScore.innerHTML = 'Very unguessable';
+      scoreDescription.innerHTML = 'Strong protection from offline slow-hash scenario. (guesses >= 10^10)';
+      myScore.style.backgroundColor = '#358e1d';
+      break;
+  }
+}
+
 const copy = () => {
   navigator.clipboard.writeText(passField.value);
   toastr.success("Password copied to clipboard!");
@@ -109,16 +140,18 @@ const copy = () => {
 
 const resetPassword = () => {
  syncChecks();
- changePassword(); 
+ changePassword();
+ checkScore();
 }
 
 // Calling functions with event listeners
 increaseBtn.addEventListener('click', increaseValue);
 decreaseBtn.addEventListener('click', decreaseValue);
 btnCopyPass.addEventListener('click', copy);
+btnRefresh.addEventListener('click', resetPassword)
 upperC.addEventListener('click', resetPassword);
 lowerC.addEventListener('click', resetPassword);
 numbers.addEventListener('click', resetPassword);
 symbols.addEventListener('click', resetPassword);
-range.addEventListener('input', changePassword);
-document.addEventListener('DOMContentLoaded', changePassword);
+range.addEventListener('input', resetPassword);
+document.addEventListener('DOMContentLoaded', resetPassword);
