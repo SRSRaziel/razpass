@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Crete+Round&family=Lato:wght@100;400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./resources/style/style.css">
+    <link href="./node_modules/toastr/build/toastr.css" rel="stylesheet"/>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/toastr/build/toastr.min.js"></script>
     <script src="./resources/scripts/script.js" defer></script>
     <title>RazPass word Generator</title>
 </head>
@@ -38,7 +41,7 @@
                             </tr>
                         </table>
                         <label for="range">Password Length</label>
-                        <output id="output">15</output>
+                        <output id="myOutput">123</output>
                         <div class="range-slider">
                             <button class="btn-range" id="decreaseBtn">-</button>
                             <input id="myRange" type="range" value="15" min="5" max="50" oninput="output.value = this.value">
@@ -48,7 +51,7 @@
                     </div>
                     <div class="password-field">
                         <input type="text" id="password" readonly>
-                        <button class="copy-btn" onclick="copy()"><i class="fa fa-copy"></i></button>
+                        <button class="copy-btn" id="btnCopyPass"><i class="fa fa-copy"></i></button>
                     </div>
                 </div>
             </div>

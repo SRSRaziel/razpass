@@ -5,15 +5,12 @@ const arrNumbers = [0,1,2,3,4,5,6,7,8,9];
 const arrSymbols = ['!','@','#','$','%','&','*','=','+','/',';','-'];
 
 // My components of index.html
-const increaseBtn = document.getElementById('increaseBtn');
-const decreaseBtn = document.getElementById('decreaseBtn');
 const range = document.getElementById('myRange');
-const output = document.getElementById('output');
-const upperC = document.getElementById('upperC');
-const lowerC = document.getElementById('lowerC');
-const numbers = document.getElementById('numbers');
-const symbols = document.getElementById('symbols');
 const passField = document.getElementById('password');
+
+let output = parseInt(range.value);
+
+// Since the HTML components have IDs, I don't have to define all of them here. They're already defined.
 
 // Functions
 const increaseValue = () => {
@@ -22,7 +19,7 @@ const increaseValue = () => {
   
     if (currentValueRange < maxValueRange) {
       range.value = currentValueRange + 1;
-      output.value = currentValueRange + 1;
+      output = currentValueRange + 1;
     }
 
     changePassword();
@@ -35,66 +32,68 @@ const decreaseValue = () => {
 
   if (currentValueRange > minValueRange) {
     range.value = currentValueRange - 1;
-    output.value = currentValueRange - 1;
+    output = currentValueRange - 1;
   }
 
   changePassword();
+}
+
+const minCheck = 1;
+
+const syncChecks = () => {
+  const checks = [upperC, lowerC, numbers, symbols];
+  
+  let checked = [];
+  let notChecked = [];
+
+  checks.forEach(check => {
+    if (check.checked) {
+      checked.push(check);
+    } else {
+      notChecked.push(check);
+    }
+  });
+
+  if (checked.length === minCheck) {
+    checked.forEach(item => {
+      item.disabled = true;
+    })
+    notChecked.forEach(item => {
+      item.disabled = false;
+    })
+  } else {
+    checks.forEach(item => {
+      item.disabled = false;
+    })
+  }
 }
 
 const changePassword = () => {
   
   let password = '';
   let arrOfChar = [];
-  let countPref = 0;
   const includeUpperC = upperC.checked;
   const includeLowerC = lowerC.checked;
   const includeNumbers = numbers.checked;
   const includeSymbols = symbols.checked;
 
   if(includeUpperC){
-    countPref++;
     arrOfChar = arrOfChar.concat(arrUppercaseLetters);
   }
   
   if(includeLowerC){
-    countPref++;
     arrOfChar = arrOfChar.concat(arrLowercaseLetters);
   }
 
   if(includeNumbers){
-    countPref++;
     arrOfChar = arrOfChar.concat(arrNumbers);
   }
 
   if(includeSymbols){
-    countPref++;
     arrOfChar = arrOfChar.concat(arrSymbols);
   }
 
-  if(countPref === 1){
-    if(includeUpperC){
-      upperC.disabled = true;
-    }
-
-    if(includeLowerC){
-      lowerC.disabled = true;
-    }
-
-    if(includeNumbers){
-      numbers.disabled = true;
-    }
-
-    if(includeSymbols){
-      symbols.disabled = true;
-    }
-  } else {
-    upperC.disabled = false;
-    lowerC.disabled = false;
-    numbers.disabled = false;
-    symbols.disabled = false;
-  }
-
-  for(let i = 0; i < output.value; i++){
+  for(let i = 0; i < output; i++){
     let randomIndex = Math.floor(Math.random() * arrOfChar.length)
     password += arrOfChar[randomIndex];
   }
@@ -105,15 +104,22 @@ const changePassword = () => {
 
 const copy = () => {
   navigator.clipboard.writeText(passField.value);
+  toastr.success("Password copied to clipboard!");
 }
 
+const resetPassword = () => {
+ syncChecks();
+ changePassword(); 
+}
 
 // Calling functions with event listeners
 increaseBtn.addEventListener('click', increaseValue);
 decreaseBtn.addEventListener('click', decreaseValue);
-upperC.addEventListener('click', changePassword);
-lowerC.addEventListener('click', changePassword);
-numbers.addEventListener('click', changePassword);
-symbols.addEventListener('click', changePassword);
+btnCopyPass.addEventListener('click', copy);
+upperC.addEventListener('click', resetPassword);
+lowerC.addEventListener('click', resetPassword);
+numbers.addEventListener('click', resetPassword);
+symbols.addEventListener('click', resetPassword);
 range.addEventListener('input', changePassword);
 document.addEventListener('DOMContentLoaded', changePassword);
+btnCopyPass.addEventListener('click', copy);
