@@ -3,6 +3,7 @@ const arrUppercaseLetters = ['A','B','C','D','E','F','G','H','I','J','K','L','M'
 const arrLowercaseLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','x','w','y','z'];
 const arrNumbers = [0,1,2,3,4,5,6,7,8,9];
 const arrSymbols = ['!','@','#','$','%','&','*','=','+','/',';','-'];
+const charsToRemove = ['l', 'I', 0, 'O', 'o'];
 
 // My components of index.html
 const range = document.getElementById('myRange');
@@ -94,6 +95,7 @@ const changePassword = () => {
   const includeLowerC = lowerC.checked;
   const includeNumbers = numbers.checked;
   const includeSymbols = symbols.checked;
+  const excludeSimilar = similar.checked;
 
   if(includeUpperC){
     arrOfChar = arrOfChar.concat(arrUppercaseLetters);
@@ -109,6 +111,10 @@ const changePassword = () => {
 
   if(includeSymbols){
     arrOfChar = arrOfChar.concat(arrSymbols);
+  }
+
+  if(excludeSimilar){
+    arrOfChar.splice(0, arrOfChar.length, ...arrOfChar.filter(char => !charsToRemove.includes(char)));
   }
 
   for(let i = 0; i < output.value; i++){
@@ -172,5 +178,6 @@ upperC.addEventListener('click', resetPassword);
 lowerC.addEventListener('click', resetPassword);
 numbers.addEventListener('click', resetPassword);
 symbols.addEventListener('click', resetPassword);
+similar.addEventListener('click', resetPassword);
 range.addEventListener('input', resetPassword);
 document.addEventListener('DOMContentLoaded', resetPassword);
