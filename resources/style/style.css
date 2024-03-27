@@ -1,25 +1,30 @@
 /* General */
 
 body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     color: white;
     background-color: rgb(32, 32, 32);
-    margin: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-input{
-    margin: 5px;
 }
 
 /* Main */
 
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container{
-    height: 500px;
-    width: 500px;
+    max-width: 600px;
+    min-width: 500px;
+}
+
+.content{
+    padding: 20px;
     background-color: rgb(77, 77, 77);
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -27,24 +32,30 @@ input{
 
 /* Title */
 
-.main-div h1{
+.title h1{
     text-align: center;
     font-weight: 600;
-    padding-top: 20px;
+    margin: 0;
 }
 
-.main-div p{
+.title p{
     text-align: center;
 }
 
 /* Options */
 
 .options-pass{
-    padding: 0px 5%;
+    padding: 0px 0px 20px 0px;
+    display: grid;
+    gap: 5px;
 }
 
-table{
-    margin-bottom: 20px;
+.option-label {
+    grid-column: 1;
+}
+
+.option-check {
+    grid-column: 2;
 }
 
 /* Range and Output */
@@ -55,6 +66,10 @@ output{
     padding: 5px;
     border-radius: 5px;
     margin-left: 5px;
+}
+
+input{
+    margin: 5px;
 }
 
 .range-slider{

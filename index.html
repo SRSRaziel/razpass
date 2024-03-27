@@ -7,52 +7,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Crete+Round&family=Lato:wght@100;400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./resources/style/style.css">
-    <link href="./node_modules/toastr/build/toastr.css" rel="stylesheet"/>
+    <link href="./node_modules/toastr/build/toastr.css" rel="stylesheet" />
     <script src="./node_modules/zxcvbn/dist/zxcvbn.js"></script>
     <script src="./node_modules/jquery/dist/jquery.js"></script>
     <script src="./node_modules/toastr/build/toastr.min.js"></script>
     <script src="./resources/scripts/script.js" defer></script>
     <title>RazPass word Generator</title>
 </head>
+
 <body>
     <main>
         <section>
             <div class="container">
-                <div class="main-div">
-                    <h1> Password Generator </h1>
-                    <p> Create strong and secure passwords using RazPass</p>
+                <div class="content">
+                    <div class="title">
+                        <h1> Password Generator </h1>
+                        <p> Create strong and secure passwords using RazPass</p>
+                    </div>
                     <hr>
                     <div class="options-pass">
-                        <table>
-                            <tr>
-                                <td>Include <b> Uppercase </b> Characters</td>
-                                <td><input type="checkbox" id="upperC" checked> (e.g. ABDEFGH)</td>
-                            </tr>
-                            <tr>
-                                <td>Include <b> Lowercase </b> Characters</td>
-                                <td><input type="checkbox" id="lowerC" checked> (e.g. abcdefg)</td>
-                            </tr>
-                            <tr>
-                                <td>Include <b> Numbers</b></td>
-                                <td><input type="checkbox" id="numbers" checked> (e.g. 123456)</td>
-                            </tr>
-                            <tr>
-                                <td>Include <b> Symbols</b></td>
-                                <td><input type="checkbox" id="symbols" checked> (e.g. !@#$%&*)</td>
-                            </tr>
-                            <tr>
-                                <td>Exclude <b> Similar</b></td>
-                                <td><input type="checkbox" id="similar"> (e.g. I,l,O,0,o)</td>
-                            </tr>
-                        </table>
+                        <div class="option-label">
+                            Include <b> Uppercase </b> Characters
+                        </div>
+                        <div class="option-check">
+                            <input type="checkbox" id="upperC" checked> (e.g. ABDEFGH)
+                        </div>
+                        <div class="option-label">
+                            Include <b> Lowercase </b> Characters
+                        </div>
+                        <div class="option-check">
+                            <input type="checkbox" id="lowerC" checked> (e.g. abcdefg)
+                        </div>
+                        <div class="option-label">
+                            Include <b> Numbers</b>
+                        </div>
+                        <div class="option-check">
+                            <input type="checkbox" id="numbers" checked> (e.g. 123456)
+                        </div>
+                        <div class="option-label">
+                            Include <b> Symbols</b>
+                        </div>
+                        <div class="option-check">
+                            <input type="checkbox" id="symbols" checked> (e.g. !@#$%&*)
+                        </div>
+                        <div class="option-label">
+                            Exclude <b> Similar</b>
+                        </div>
+                        <div class="option-check">
+                            <input type="checkbox" id="similar"> (e.g. I,l,O,0,o)
+                        </div>
+                    </div>
+                    <div class="range-output">
                         <label for="range">Password Length</label>
                         <output id="output">15</output>
-                        <div class="range-slider">
-                            <button class="btn-range" id="decreaseBtn">-</button>
-                            <input id="myRange" type="range" value="15" min="4" max="50" oninput="output.value = this.value">
-                            
-                            <button class="btn-range" id="increaseBtn">+</button>
-                        </div> 
+                    </div>
+                    <div class="range-slider">
+                        <button class="btn-range" id="decreaseBtn">-</button>
+                        <input id="myRange" type="range" value="15" min="4" max="50" oninput="output.value = this.value">
+                        <button class="btn-range" id="increaseBtn">+</button>
                     </div>
                     <div class="password-field">
                         <input type="text" id="password" readonly>
@@ -62,16 +74,12 @@
                         </div>
                     </div>
                     <div class="scoreDiv">
-                        <div>
-                            <span id="myScore"> Hello </span>
-                        </div>
-                        <div>
-                            <span id="scoreDescription"> Hello </span>
-                        </div>
+                        <span id="myScore"></span>
+                        <span id="scoreDescription"></span>
                     </div>
                 </div>
             </div>
         </section>
-    </main> 
+    </main>
 </body>
 </html>
