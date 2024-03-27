@@ -79,6 +79,10 @@ output{
     border: 2px solid rgb(71, 71, 71);
 }
 
+.btn-range:disabled {
+    cursor: default;
+}
+
 /* Password Field and Buttons */
 
 .password-field{

@@ -8,13 +8,15 @@ const arrSymbols = ['!','@','#','$','%','&','*','=','+','/',';','-'];
 const range = document.getElementById('myRange');
 const passField = document.getElementById('password');
 const output = document.getElementById('output');
-
 output.value = parseInt(range.value);
+
+// Variables and Constants
+const maxValueRange = parseInt(range.max);
+const minValueRange = parseInt(range.min);
 
 // Functions
 const increaseValue = () => {
     let currentValueRange = parseInt(range.value);
-    let maxValueRange = parseInt(range.max);
   
     if (currentValueRange < maxValueRange) {
       range.value = currentValueRange + 1;
@@ -22,20 +24,38 @@ const increaseValue = () => {
     }
 
     changePassword();
+    checkRange();
 
   }
   
 const decreaseValue = () => {
   let currentValueRange = parseInt(range.value);
-  let minValueRange = parseInt(range.min);
 
   if (currentValueRange > minValueRange) {
+    decreaseBtn.disabled = false;
     range.value = currentValueRange - 1;
     output.value = currentValueRange - 1;
   }
 
   changePassword();
+  checkRange();
 
+}
+
+const checkRange = () => {
+  let currentValueRange = parseInt(range.value);
+
+  if (currentValueRange === minValueRange) {
+    decreaseBtn.disabled = true;
+  } else {
+    decreaseBtn.disabled = false;
+  }
+
+  if (currentValueRange === maxValueRange) {
+    increaseBtn.disabled = true;
+  } else {
+    increaseBtn.disabled = false;
+  }
 }
 
 const minCheck = 1;
@@ -140,6 +160,7 @@ const copy = () => {
 
 const resetPassword = () => {
  syncChecks();
+ checkRange();
  changePassword();
  checkScore();
 }
