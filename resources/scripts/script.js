@@ -10,7 +10,7 @@ const passField = document.getElementById('password');
 const output = document.getElementById('output');
 output.value = parseInt(range.value);
 
-// Variables and Constants
+// Get min and max range values to use on Increase and Decrease functions
 const maxValueRange = parseInt(range.max);
 const minValueRange = parseInt(range.min);
 
@@ -23,8 +23,7 @@ const increaseValue = () => {
       output.value = currentValueRange + 1;
     }
 
-    changePassword();
-    checkRange();
+    resetPassword();
 
   }
   
@@ -37,8 +36,7 @@ const decreaseValue = () => {
     output.value = currentValueRange - 1;
   }
 
-  changePassword();
-  checkRange();
+  resetPassword();
 
 }
 
