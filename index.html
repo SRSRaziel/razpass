@@ -26,6 +26,9 @@
                     </div>
                     <hr>
                     <div class="options-pass">
+                        <div class="options-title">
+                            Build the password
+                        </div>
                         <div class="option-label">
                             Include <b> Uppercase </b> Characters
                         </div>
@@ -50,11 +53,26 @@
                         <div class="option-check">
                             <input type="checkbox" id="symbols" checked> (e.g. !@#$%&*)
                         </div>
+                        <div class="options-title">
+                            Password rules
+                        </div>
                         <div class="option-label">
-                            Exclude <b> Similar</b>
+                            No <b> Similar</b> Characters
                         </div>
                         <div class="option-check">
                             <input type="checkbox" id="similar"> (e.g. I,l,O,0,o)
+                        </div>
+                        <div class="option-label">
+                            No <b> Duplicate</b> Characters *
+                        </div>
+                        <div class="option-check">
+                            <input type="checkbox" id="dupe"> (Don't use a character twice)
+                        </div>
+                        <div class="option-label">
+                            No <b> Sequential</b> Characters *
+                        </div>
+                        <div class="option-check">
+                            <input type="checkbox" id="sequential"> (Don't use sequence, e.g. abc, 123)
                         </div>
                     </div>
                     <div class="range-output">
@@ -76,6 +94,7 @@
                     <div class="scoreDiv">
                         <span id="myScore"></span>
                         <span id="scoreDescription"></span>
+                        * Working on...
                     </div>
                 </div>
             </div>

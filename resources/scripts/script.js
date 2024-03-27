@@ -95,26 +95,27 @@ const changePassword = () => {
   const includeLowerC = lowerC.checked;
   const includeNumbers = numbers.checked;
   const includeSymbols = symbols.checked;
-  const excludeSimilar = similar.checked;
+  const noSimilar = similar.checked;
+  const noDupe = dupe.checked;
 
   if(includeUpperC){
-    arrOfChar = arrOfChar.concat(arrUppercaseLetters);
+    arrOfChar = arrOfChar.concat(arrUppercaseLetters); // If checked, it will include the Uppercase letters in the array arrOfChar
   }
   
   if(includeLowerC){
-    arrOfChar = arrOfChar.concat(arrLowercaseLetters);
+    arrOfChar = arrOfChar.concat(arrLowercaseLetters); // If checked, it will include the Lowercase letters in the array arrOfChar
   }
 
   if(includeNumbers){
-    arrOfChar = arrOfChar.concat(arrNumbers);
+    arrOfChar = arrOfChar.concat(arrNumbers); // If checked, it will include numbers in the array arrOfChar
   }
 
   if(includeSymbols){
-    arrOfChar = arrOfChar.concat(arrSymbols);
+    arrOfChar = arrOfChar.concat(arrSymbols); // If checked, it will include symbols in the array arrOfChar
   }
 
-  if(excludeSimilar){
-    arrOfChar.splice(0, arrOfChar.length, ...arrOfChar.filter(char => !charsToRemove.includes(char)));
+  if(noSimilar){
+    arrOfChar.splice(0, arrOfChar.length, ...arrOfChar.filter(char => !charsToRemove.includes(char))); // If checked, it will remove similar characters from the password
   }
 
   for(let i = 0; i < output.value; i++){
@@ -179,5 +180,7 @@ lowerC.addEventListener('click', resetPassword);
 numbers.addEventListener('click', resetPassword);
 symbols.addEventListener('click', resetPassword);
 similar.addEventListener('click', resetPassword);
+dupe.addEventListener('click', resetPassword);
+sequential.addEventListener('click', resetPassword);
 range.addEventListener('input', resetPassword);
 document.addEventListener('DOMContentLoaded', resetPassword);
